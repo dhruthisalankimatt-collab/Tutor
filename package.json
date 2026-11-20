@@ -1,0 +1,37 @@
+{
+  "name": "tutor",
+  "version": "1.0.0",
+  "description": "1. Create a Supabase project; run `supabase/migrations/001_schema.sql` in the SQL editor. 2. `cp .env.example .env.local`, fill values. `npm i`. 3. `npm run seed` (needs env loaded) to provision Smruthi + Dhruthi with bcrypt hashes. 4. Store each Groq key encrypted: `encrypt()` from `lib/crypto.ts` → `ai_configurations.encrypted_api_key` (admin UI for this is not built yet). 5. `npm run dev`. Deploy to Vercel with the same env vars. Implemented: schema + RLS, auth (HTTP-only JWT, bcrypt, rate limit, route guard), encrypted key storage, Agent 1 (hints, answer check, give-up, per-question memory isolation, answer never sent to browser), student chat UI. Not yet built: image upload/crop/OCR, Agent 2, Agent 3, admin dashboard, Edit Keys/Subjects, Reset Database.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev --webpack",
+    "build": "next build --webpack",
+    "start": "next start",
+    "seed": "tsx scripts/seed.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@supabase/ssr": "^0.12.7",
+    "@supabase/supabase-js": "^2.119.2",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/node": "^26.6.6",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "autoprefixer": "^10.7.0",
+    "bcryptjs": "^3.0.3",
+    "groq-sdk": "^1.6.0",
+    "jose": "^6.2.18",
+    "lucide-react": "^1.77.0",
+    "next": "^16.4.6",
+    "postcss": "^8.5.33",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "tailwindcss": "^3.4.19",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "zod": "^4.6.7"
+  }
+}
